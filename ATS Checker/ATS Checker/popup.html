@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ATS Checker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1><span class="logoDot"></span> ATS Checker</h1>
+
+  <div class="card grid">
+    <div class="inputRow">
+      <label for="jd">Job Description</label>
+      <textarea id="jd" placeholder="Paste the job description here..."></textarea>
+    </div>
+
+    <div class="fileRow">
+      <div>
+        <label for="resume">Resume (PDF)</label>
+        <input type="file" id="resume" accept="application/pdf">
+      </div>
+      <small id="fileInfo">No file selected</small>
+    </div>
+
+    <div class="actions">
+      <button id="analyzeBtn">Analyze</button>
+      <button id="clearBtn">Clear</button>
+    </div>
+    <div class="note">Your inputs are stored locally in this browser using chrome.storage.local. Nothing leaves your device.</div>
+  </div>
+
+  <div class="card resultCard" id="results" style="display:none;">
+    <div>
+      <div id="scoreLabel">Match Score: <strong>0%</strong></div>
+      <div class="progressOuter"><div class="progressInner" id="progress"></div></div>
+    </div>
+    <div class="grid">
+      <div>
+        <strong>JD Skills</strong>
+        <div id="jdSkills"></div>
+      </div>
+      <div>
+        <strong>Resume Skills</strong>
+        <div id="resumeSkills"></div>
+      </div>
+      <div>
+        <strong>Matched Skills</strong>
+        <div id="matchedSkills"></div>
+      </div>
+    </div>
+    <details>
+      <summary>Debug details</summary>
+      <pre id="debug"></pre>
+    </details>
+  </div>
+
+  <div class="footer">v1.0.0 · PDF parsing powered by local PDF.js</div>
+
+  <!-- Local PDF.js (you can replace with official builds) -->
+  <script src="libs/pdfjs/pdf.min.js"></script>
+  <script src="pdf-boot.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
